@@ -7,7 +7,12 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-
+/*for smooth scroll*/
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-mediabehavior: auto;
+	}
+}
 
 /* Main Background Color */
 body {
@@ -52,6 +57,7 @@ nav li {
 nav a {
     color: #fff;
     text-decoration: none;
+    font-size: 10px;
 }
 
 nav a:hover{
@@ -166,17 +172,129 @@ body {
     display: block;
     object-fit: cover;
     border-radius: 10px;
+    transition:0.5s;
 }
-
+.anime-item img:hover{
+   transform:scale(1.1,1.1);
+}
 .anime-item p {
     font-weight: bold;
     color: #fff;
     margin: 10px 0;
 }
 
+/*Latest section*/
+.latest-additions {
+    background-color: #333333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.latest-additions h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.latest-wallpapers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.latest-wallpapers .l-wallpaper {
+    margin: 0 10px; /* Add spacing between wallpapers */
+}
+
+.latest-wallpapers img {
+    width: 200px; 
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.8s;
+}
+.latest-wallpapers img:hover{
+   transform: scale(1.1,1.1);
+}
+/* Add this CSS to style the wallpapers in a grid layout */
+
+.latest-additions {
+    background-color: #333333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.latest-additions h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.wallpapers-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Adjust the margin as needed to control spacing between rows */
+}
+
+.wallpaper {
+    margin: 0 10px; /* Adjust the margin as needed to control spacing between pictures */
+}
+.wallpaper:hover{
+   transform:scale(0.1,0.1);
+}
+
+.wallpaper img {
+    width: 200px; /* Adjust image width */
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.download-button {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url('/images/download.jpg') no-repeat/* center center*/;
+    background-size: cover;
+    text-indent: -9999px;
+    overflow: hidden;
+    float: right;
+    margin-top:5px;
+    margin-right:5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* Add more CSS for styling as needed */
+
+/* Add more CSS for styling as needed */
+
 
 /* Footer */
 footer {
+   text-align: center ;
     background-color: #7D3C98; 
     color: #fff;
 }
+
+
+
+/*.     pages.   */
+/* Default styles for wallpaper elements */
+.wallpaper {
+    width: 45%; /* Initially, two wallpapers in a row */
+    /* Other styles for wallpapers */
+}
+
+/* Media query for desktop mode */
+@media (min-width: 768px) {
+    .wallpaper {
+        width: 22%; /* Four wallpapers in a row on desktop */
+        /* Adjust the width to your preference */
+    }
+}
+
+    
