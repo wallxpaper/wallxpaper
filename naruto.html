@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto Wallpaper | WallxPaper </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="/images/logo1.png"alt="logo"></div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html #popular">Categories</a></li>
+            <li><a href="index.html #latest">Latest</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Submit Wallpaper</a></li>
+        </ul>
+    </nav>
+
+
+
+<section class="latest-additions">
+    <h2>Naruto</h2>
+    <div class="latest-wallpapers" id="wallpapers-container">
+        <!-- Wallpapers will be dynamically loaded here by JavaScript -->
+    </div>
+</section>
+    <footer>
+        &copy; 2023 WallxPaper | @Versatile-om.<br> All rights reserved.
+    </footer>
+    
+
+  <script>
+// Simulated array of latest wallpapers (you should replace this with your data)
+const narutoWallpapers = [
+    { src: 'images/naruto/img01.jpg', alt: 'Naruto 1', downloadPath: 'images/naruto/img01.jpg' },
+    { src: 'images/naruto/img02.jpg', alt: 'Naruto 2', downloadPath: 'images/naruto/img02.jpg' },
+    { src: 'images/naruto/img03.jpg', alt: 'Naruto 3', downloadPath: 'images/naruto/img03.jpg' },
+    { src: 'images/naruto/img04.jpg', alt: 'Naruto 4', downloadPath: 'images/naruto/img04.jpg' },
+    { src: 'images/naruto/img05.jpg', alt: 'Naruto 5', downloadPath: 'images/naruto/img05.jpg' },
+    { src: 'images/naruto/img06.jpg', alt: 'Naruto 6', downloadPath: 'images/naruto/img06.jpg' },
+    { src: 'images/naruto/img07.jpg', alt: 'Naruto 7', downloadPath: 'images/naruto/img07.jpg' },
+    { src: 'images/naruto/img08.jpg', alt: 'Naruto 8', downloadPath: 'images/naruto/img08.jpg' },
+    { src: 'images/naruto/img09.jpg', alt: 'Naruto 9', downloadPath: 'images/naruto/img09.jpg' },
+    { src: 'images/naruto/img10.jpg', alt: 'Naruto 10', downloadPath: 'images/naruto/img10.jpg' },
+    { src: 'images/naruto/img11.jpg', alt: 'Naruto 11', downloadPath: 'images/naruto/img11.jpg' },
+    { src: 'images/naruto/img12.jpg', alt: 'Naruto 12', downloadPath: 'images/naruto/img12.jpg' },
+    { src: 'images/naruto/img13.jpg', alt: 'Naruto 13', downloadPath: 'images/naruto/img13.jpg' },
+    { src: 'images/naruto/img14.jpg', alt: 'Naruto 14', downloadPath: 'images/naruto/img14.jpg' },
+    { src: 'images/naruto/img15.jpg', alt: 'Naruto 15', downloadPath: 'images/naruto/img15.jpg' },
+    { src: 'images/naruto/img16.jpg', alt: 'Naruto 16', downloadPath: 'images/naruto/img16.jpg' },
+    { src: 'images/naruto/img17.jpg', alt: 'Naruto 17', downloadPath: 'images/naruto/img17.jpg' },
+    { src: 'images/naruto/img18.jpg', alt: 'Naruto 18', downloadPath: 'images/naruto/img18.jpg' },
+    { src: 'images/naruto/img19.jpg', alt: 'Naruto 19', downloadPath: 'images/naruto/img19.jpg' },
+    { src: 'images/naruto/img20.jpg', alt: 'Naruto 20', downloadPath: 'images/naruto/img20.jpg' },
+];
+
+    // Add more wallpapers as needed
+
+
+function createWallpaperElement(wallpaper) {
+    const wallpaperElement = document.createElement('div');
+    wallpaperElement.classList.add('l-wallpaper');
+
+    const img = document.createElement('img');
+    img.src = wallpaper.src;
+    img.alt = wallpaper.alt;
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = wallpaper.downloadPath;
+    downloadLink.classList.add('download-button'); // Add the 'download-button' class
+
+    wallpaperElement.appendChild(img);
+    wallpaperElement.appendChild(downloadLink);
+
+    return wallpaperElement;
+}
+
+
+
+// Function to shuffle the array randomly
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Function to add the latest wallpapers to the container in a grid layout
+function displayNarutoWallpapers() {
+    const wallpapersContainer = document.getElementById('wallpapers-container');
+
+    shuffleArray(narutoWallpapers); // Shuffle the array
+
+    let currentRow;
+    
+    narutoWallpapers.forEach((wallpaper, index) => {
+        if (index % 2 === 0) {
+            currentRow = document.createElement('div');
+            currentRow.classList.add('wallpapers-row');
+        }
+
+        const wallpaperElement = createWallpaperElement(wallpaper);
+        currentRow.appendChild(wallpaperElement);
+
+        if (index % 2 === 1 || index === narutoWallpapers.length - 1) {
+            wallpapersContainer.appendChild(currentRow);
+        }
+    });
+}
+
+// Call the function to display the latest wallpapers when the page loads
+document.addEventListener('DOMContentLoaded', displayNarutoWallpapers);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Wallpaper | WallxPaper </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="/images/logo1.png"alt="logo"></div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html #popular">Categories</a></li>
+            <li><a href="index.html #latest">Latest</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Submit Wallpaper</a></li>
+        </ul>
+    </nav>
+
+
+
+<section class="latest-additions">
+    <h2>One Piece</h2>
+    <div class="latest-wallpapers" id="wallpapers-container">
+        <!-- Wallpapers will be dynamically loaded here by JavaScript -->
+    </div>
+</section>
+    <footer>
+        &copy; 2023 WallxPaper | @Versatile-om.<br> All rights reserved.
+    </footer>
+    
+
+  <script>
+// Simulated array of latest wallpapers (you should replace this with your data)
+const onepieceWallpapers = [
+    { src: 'images/onepiece/img01.jpg', alt: 'onepiece 1', downloadPath: 'images/onepiece/img01.jpg' },
+    { src: 'images/onepiece/img02.jpg', alt: 'onepiece 2', downloadPath: 'images/onepiece/img02.jpg' },
+    { src: 'images/onepiece/img03.jpg', alt: 'onepiece 3', downloadPath: 'images/onepiece/img03.jpg' },
+    { src: 'images/onepiece/img04.jpg', alt: 'onepiece 4', downloadPath: 'images/onepiece/img04.jpg' },
+    { src: 'images/onepiece/img05.jpg', alt: 'onepiece 5', downloadPath: 'images/onepiece/img05.jpg' },
+    { src: 'images/onepiece/img06.jpg', alt: 'onepiece 6', downloadPath: 'images/onepiece/img06.jpg' },
+    { src: 'images/onepiece/img07.jpg', alt: 'onepiece 7', downloadPath: 'images/onepiece/img07.jpg' },
+    { src: 'images/onepiece/img08.jpg', alt: 'onepiece 8', downloadPath: 'images/onepiece/img08.jpg' },
+    { src: 'images/onepiece/img09.jpg', alt: 'onepiece 9', downloadPath: 'images/onepiece/img09.jpg' },
+    { src: 'images/onepiece/img10.jpg', alt: 'onepiece 10', downloadPath: 'images/onepiece/img10.jpg' },
+    { src: 'images/onepiece/img11.jpg', alt: 'onepiece 11', downloadPath: 'images/onepiece/img11.jpg' },
+    { src: 'images/onepiece/img12.jpg', alt: 'onepiece 12', downloadPath: 'images/onepiece/img12.jpg' },
+    { src: 'images/onepiece/img13.jpg', alt: 'onepiece 13', downloadPath: 'images/onepiece/img13.jpg' },
+    { src: 'images/onepiece/img14.jpg', alt: 'onepiece 14', downloadPath: 'images/onepiece/img14.jpg' },
+    { src: 'images/onepiece/img15.jpg', alt: 'onepiece 15', downloadPath: 'images/onepiece/img15.jpg' },
+    { src: 'images/onepiece/img16.jpg', alt: 'onepiece 16', downloadPath: 'images/onepiece/img16.jpg' },
+    { src: 'images/onepiece/img17.jpg', alt: 'onepiece 17', downloadPath: 'images/onepiece/img17.jpg' },
+    { src: 'images/onepiece/img18.jpg', alt: 'onepiece 18', downloadPath: 'images/onepiece/img18.jpg' },
+    { src: 'images/onepiece/img19.jpg', alt: 'onepiece 19', downloadPath: 'images/onepiece/img19.jpg' },
+    { src: 'images/onepiece/img20.jpg', alt: 'onepiece 20', downloadPath: 'images/onepiece/img20.jpg' },
+];
+
+    // Add more wallpapers as needed
+
+
+function createWallpaperElement(wallpaper) {
+    const wallpaperElement = document.createElement('div');
+    wallpaperElement.classList.add('l-wallpaper');
+
+    const img = document.createElement('img');
+    img.src = wallpaper.src;
+    img.alt = wallpaper.alt;
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = wallpaper.downloadPath;
+    downloadLink.classList.add('download-button'); // Add the 'download-button' class
+
+    wallpaperElement.appendChild(img);
+    wallpaperElement.appendChild(downloadLink);
+
+    return wallpaperElement;
+}
+
+
+
+// Function to shuffle the array randomly
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Function to add the latest wallpapers to the container in a grid layout
+function displayonepieceWallpapers() {
+    const wallpapersContainer = document.getElementById('wallpapers-container');
+
+    shuffleArray(onepieceWallpapers); // Shuffle the array
+
+    let currentRow;
+    
+    onepieceWallpapers.forEach((wallpaper, index) => {
+        if (index % 2 === 0) {
+            currentRow = document.createElement('div');
+            currentRow.classList.add('wallpapers-row');
+        }
+
+        const wallpaperElement = createWallpaperElement(wallpaper);
+        currentRow.appendChild(wallpaperElement);
+
+        if (index % 2 === 1 || index === onepieceWallpapers.length - 1) {
+            wallpapersContainer.appendChild(currentRow);
+        }
+    });
+}
+
+// Call the function to display the latest wallpapers when the page loads
+document.addEventListener('DOMContentLoaded', displayonepieceWallpapers);
+
+  </script>
+</body>
+</html>
