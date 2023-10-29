@@ -9,3 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000); // 3 seconds between slides
 });
 
+
+
+//////////////
