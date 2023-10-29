@@ -16,13 +16,26 @@
     
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">Latest</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#popular">Categories</a></li>
+            <li><a href="#latest">Latest</a></li>
             <li><a href="#">Popular</a></li>
             <li><a href="#">Submit Wallpaper</a></li>
         </ul>
     </nav>
+    <!--
+<section class="categories" id="categories">
+   
+    <ul>
+        <li><a href="/naruto.html">Naruto</a></li>
+        <li><a href="#">One Peice</a></li>
+        <li><a href="#">Bleach</a></li>
+        <li><a href="#">Demon Slayer</a></li>
+        <li><a href="#">JJK</a></li>
+        <li><a href="#">Hunter X Hunter</a></li>
+    </ul>
+</section>-->
+
 
 <section class="hero">
         <div class="image-slider">
@@ -43,16 +56,17 @@
         <div class="hero-content">
             <h1>Welcome to WallxPaper</h1>
             <p>Explore a world of stunning anime wallpapers</p>
-            <a href="#" class="cta-button">Get Started</a>
+            <a href="#popular" class="cta-button">Get Started</a>
         </div>
     </section>
     
 <main>    
-<section class="popular-anime">
+<section class="popular-anime" id="popular">
     <h2>Popular Anime</h2>
     <div class="anime-items">
         <div class="anime-item">
-            <img src="images/hero/naruto.jpg" alt="Anime 1">
+           <a href="naruto.html">
+            <img src="images/naruto/img01.jpg" alt="Anime 1"></a>
             <p>Naruto</p>
         </div>
         <div class="anime-item">
@@ -60,29 +74,106 @@
             <p>One Piece</p>
         </div>
         <div class="anime-item">
+           <img src="images/hero/one-piece.jpg" alt="Anime 2">
+           <p>One Piece</p>
+        </div>
+      </div>
+      <div class="anime-items">
+        <div class="anime-item">
             <img src="images/hero/jjk.jpg" alt="Anime 3">
             <p>JJK</p>
         </div>
-        <!-- Add more anime items as needed -->
+      </div>
+    
+</section>
+
+<section class="latest-additions" id="latest">
+    <h2>Latest Additions</h2>
+    <div class="latest-wallpapers" id="wallpapers-container">
+        <!-- Wallpapers will be dynamically loaded here by JavaScript -->
     </div>
 </section>
 
-<section class="latest-additions">
-    <h2>Latest Additions</h2>
-    <div class="latest-wallpapers" id="wallpapers-container">
-        <!-- Wallpapers will be dynamically loaded here -->
-    </div>
-</section>
 
 
 </main>
 
     
     <footer>
-        &copy; 2023 Anime Wallpaper Hub. All rights reserved.
+        &copy; 2023 WallxPaper | @Versatile-om.<br> All rights reserved.
     </footer>
   
 
+<script>
+   // Simulated array of latest wallpapers (you should replace this with your data)
+const latestWallpapers = [
+    { src: '/images/1.jpg', alt: 'Latest Wallpaper 1' ,downloadPath: '/images/1.jpg'},
+    { src: 'images/2.jpg', alt: 'Latest Wallpaper 2',downloadPath: '/images/2.jpg' },
+    { src: 'images/3.jpg', alt: 'Latest Wallpaper 3' ,downloadPath: '/images/3.jpg'},
+    { src: '/images/4.jpg', alt: 'Latest Wallpaper 4' ,downloadPath: '/images/4.jpg'},
+    { src: 'images/5.jpg', alt: 'Latest Wallpaper 5' ,downloadPath: '/images/5.jpg'},
+    { src: 'images/6.jpg', alt: 'Latest Wallpaper 6', downloadPath: '/images/6.jpg' },
+    // Add more wallpapers as needed
+];
 
+
+function createWallpaperElement(wallpaper) {
+    const wallpaperElement = document.createElement('div');
+    wallpaperElement.classList.add('l-wallpaper');
+
+    const img = document.createElement('img');
+    img.src = wallpaper.src;
+    img.alt = wallpaper.alt;
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = wallpaper.downloadPath;
+    downloadLink.classList.add('download-button'); // Add the 'download-button' class
+
+    wallpaperElement.appendChild(img);
+    wallpaperElement.appendChild(downloadLink);
+
+    return wallpaperElement;
+}
+
+
+
+// Function to shuffle the array randomly
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Function to add the latest wallpapers to the container in a grid layout
+function displayLatestWallpapers() {
+    const wallpapersContainer = document.getElementById('wallpapers-container');
+
+    shuffleArray(latestWallpapers); // Shuffle the array
+
+    let currentRow;
+    
+    latestWallpapers.forEach((wallpaper, index) => {
+        if (index % 2 === 0) {
+            currentRow = document.createElement('div');
+            currentRow.classList.add('wallpapers-row');
+        }
+
+        const wallpaperElement = createWallpaperElement(wallpaper);
+        currentRow.appendChild(wallpaperElement);
+
+        if (index % 2 === 1 || index === latestWallpapers.length - 1) {
+            wallpapersContainer.appendChild(currentRow);
+        }
+    });
+}
+
+// Call the function to display the latest wallpapers when the page loads
+document.addEventListener('DOMContentLoaded', displayLatestWallpapers);
+
+
+
+</script>
 </body>
-</html>
+        </html>
+        
